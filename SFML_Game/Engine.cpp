@@ -5,22 +5,27 @@ void Engine::Cycle()
     // Loop
     std::chrono::high_resolution_clock::time_point start = std::chrono::high_resolution_clock::now();
     sf::Event event;
-    switch (window.pollEvent(event))
+    while (window.pollEvent(event))
     {
-    case sf::Event::Closed:
+        switch (event.type)
+        {
+        case sf::Event::Closed:
             window.close();
             break;
-    case sf::Event::KeyPressed:
-        switch (event.key.scancode)
-        {
-        case sf::Keyboard::W:
+        case sf::Event::KeyPressed:
+            switch (event.key.scancode)
+            {
+            case sf::Keyboard::W:
+                break;
+            }
             break;
         }
-        break;
     }
 
     window.clear();
+    Renderable::RenderAll(window);
     window.display();
+
     std::chrono::high_resolution_clock::time_point end = std::chrono::high_resolution_clock::now();
     deltaTime = (end - start).count() / 1000.f;
 }

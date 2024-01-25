@@ -1,27 +1,23 @@
 #pragma once
+#include <SFML/Main.hpp>
+#include <SFML/Graphics.hpp>
 
 class Transforms
 {
-public:
-	typedef struct Coords {
-		float x, y;
-
-		Coords(float x = 0, float y = 0) : x(x), y(y) {}
-	};
 private:
-	Coords position;
+	sf::Vector2f position;
 	float rotation;
-	Coords scale;
+	sf::Vector2f scale;
 public:
-	Transforms(Coords position = Coords(), float rotation = 0.f, Coords scale = Coords()) 
+	Transforms(sf::Vector2f position = sf::Vector2f(100, 100), float rotation = 0.f, sf::Vector2f scale = sf::Vector2f(1, 1))
 		: position(position), rotation(rotation), scale(scale) {}
 
-	Coords getPosition() { return position; }
-	Coords getScale() { return scale; }
+	sf::Vector2f getPosition() { return position; }
+	sf::Vector2f getScale() { return scale; }
 	float getRotation() { return rotation; }
 
-	void setPosition(Coords position) { this->position = position; }
-	void setScale(Coords scale) { this->scale = scale; }
+	void setPosition(sf::Vector2f position) { this->position = position; }
+	void setScale(sf::Vector2f scale) { this->scale = scale; }
 	void setRotation(float rotation) { this->rotation; }
 };
 
