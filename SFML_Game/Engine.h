@@ -5,7 +5,8 @@
 #include <chrono>
 
 #include "Globals.h"
-#include "Renderer.h"
+#include "Renderable.h"
+#include "ControllableGameObject.h"
 
 class Engine final
 {

@@ -9,7 +9,14 @@ private:
 	unsigned int id;
 public:
 	Renderable() : id(getID()) { Renderable::renderQueue.push_back(this); }
-
+	~Renderable() {
+		for (std::vector<Renderable*>::iterator it = renderQueue.begin(); it < renderQueue.end(); it++)
+			if ((*it) == this)
+			{
+				renderQueue.erase(it);
+				break;
+			}
+	}
 	unsigned int getID() {
 		static unsigned int id = 0;
 		return id++;

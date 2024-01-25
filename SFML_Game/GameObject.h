@@ -1,11 +1,11 @@
 #pragma once
 #include <SFML/Graphics.hpp>
 #include "Transforms.h"
-#include "Renderer.h"
+#include "Renderable.h"
 
 class GameObject : Renderable
 {
-private:
+protected:
 	sf::Sprite sprite;
 	Transforms transforms;
 	GameObject() : sprite(), transforms() { }

@@ -2,7 +2,7 @@
 #include <SFML/Graphics.hpp>
 
 #include "Engine.h"
-#include "GameObject.h"
+#include "ControllableGameObject.h"
 
 int main() {
 	Engine engine;
@@ -13,7 +13,7 @@ int main() {
 		// error...
 		return 0;
 	}
-	GameObject object(texture, Transforms(), sf::Vector2f(), sf::IntRect(sf::Vector2i(0, 0), sf::Vector2i(64, 128)));
+	ControllableGameObject object(texture, Transforms(), sf::Vector2f(), sf::IntRect(sf::Vector2i(0, 0), sf::Vector2i(64, 128)));
 
 	engine.Start();
 
